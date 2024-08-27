@@ -60,7 +60,7 @@ BEGIN
 		INNER JOIN ItemTable IT ON IT.ItemId = PI.ItemID
 		INNER JOIN PlayerTable PT ON PT.PlayerID = PI.PlayerID)
 		SELECT max(Price) as MaxPrice from tmp WHERE PlayerName = p_name;
-END $$
+END $$retrieveDataAndOrderByPlayerName
 
 DELIMITER ;
 
@@ -71,15 +71,13 @@ CALL getMaxItemPriceByPlayerName('Player 1');
 DELIMITER $$
 CREATE PROCEDURE retrieveDataAndOrderByPlayerName()
 BEGIN
-	select pt.PlayerName, it.ItemName,itt.ItemTypeName, it.Price from PlayerTable pt
+	select pt.PlayerName as 'Player name', it.ItemName as 'Item name',itt.ItemTypeName as 'Item type', it.Price  from PlayerTable pt
 	join PlayerItem pi on pi.PlayerId = pt.PlayerId
 	join ItemTable it on it.ItemId = pi.ItemId
 	join ItemTypeTable itt on itt.ItemTypeId = it.ItemTypeId
-	order by pt.PlayerName;
+	order by 'Player name';
 END $$
 
 DELIMITER ;
 
 CALL retrieveDataAndOrderByPlayerName();
-
-
