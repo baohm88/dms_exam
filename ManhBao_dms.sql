@@ -76,11 +76,11 @@ CALL getMaxItemPriceByPlayerName('Player 1');
 DELIMITER $$
 CREATE PROCEDURE retrieveDataAndOrderByPlayerName()
 BEGIN
-	select pt.PlayerName as 'Player name', it.ItemName as 'Item name',itt.ItemTypeName as 'Item type', it.Price  from PlayerTable pt
-	join PlayerItem pi on pi.PlayerId = pt.PlayerId
-	join ItemTable it on it.ItemId = pi.ItemId
-	join ItemTypeTable itt on itt.ItemTypeId = it.ItemTypeId
-	order by 'Player name';
+	SELECT pt.PlayerName as 'Player name', it.ItemName as 'Item name',itt.ItemTypeName as 'Item type', it.Price  FROM PlayerTable pt
+	JOIN PlayerItem pi on pi.PlayerId = pt.PlayerId
+	JOIN ItemTable it on it.ItemId = pi.ItemId
+	JOIN ItemTypeTable itt on itt.ItemTypeId = it.ItemTypeId
+	ORDER BY 'Player name';
 END $$
 
 DELIMITER ;
