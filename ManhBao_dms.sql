@@ -1,3 +1,4 @@
+-- 1. Write a script to create database with name is XgameBattle and all table in diagram(Table 1).
 CREATE DATABASE XgameBattle;
 USE XgameBattle;
 
@@ -30,6 +31,8 @@ CREATE TABLE PlayerItem (
     FOREIGN KEY(PlayerId) REFERENCES PlayerTable(PlayerId)
 );
 
+-- 2. Write a script to insert values in (Table 2, Table 3, Table 4, Table 5) into the database.
+
 INSERT INTO PlayerTable (PlayerId, PlayerName, PlayerNational)
 VALUES ('2C16E515-83AF-4D37-8A21-58AFD900E3F6', 'Player 1', 'Viet Nam'),
 		    ('D401EA60-7A83-4C7E-BF6E-707CF1F3E57E', 'Player 2', 'US');
@@ -52,6 +55,8 @@ VALUES ('72B83972-051D-4B96-B229-05DE585DF1EE', '2C16E515-83AF-4D37-8A21-58AFD90
         ('97E25C9F-FA12-4D9A-AB32-D62EBC2107BF', '2C16E515-83AF-4D37-8A21-58AFD900E3F6'),
         ('97E25C9F-FA12-4D9A-AB32-D62EBC2107BF', 'D401EA60-7A83-4C7E-BF6E-707CF1F3E57E');
 
+
+-- 3. Write a store procedure to calculate maximun price of the item where Player 1
 DELIMITER $$
 CREATE PROCEDURE getMaxItemPriceByPlayerName(IN p_name CHAR(120))
 BEGIN
@@ -67,7 +72,7 @@ DELIMITER ;
 CALL getMaxItemPriceByPlayerName('Player 1');
 
 
-
+-- 4. Write a stored procedure to retrieve data and order by Player name following below table
 DELIMITER $$
 CREATE PROCEDURE retrieveDataAndOrderByPlayerName()
 BEGIN
