@@ -1,3 +1,4 @@
+DROP DATABASE XgameBattle;
 -- 1. Write a script to create database with name is XgameBattle and all table in diagram(Table 1).
 CREATE DATABASE XgameBattle;
 USE XgameBattle;
@@ -65,7 +66,7 @@ BEGIN
 		INNER JOIN ItemTable IT ON IT.ItemId = PI.ItemID
 		INNER JOIN PlayerTable PT ON PT.PlayerID = PI.PlayerID)
 		SELECT max(Price) as MaxPrice from tmp WHERE PlayerName = p_name;
-END $$retrieveDataAndOrderByPlayerName
+END $$
 
 DELIMITER ;
 
